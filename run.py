@@ -11,6 +11,10 @@ import argparse
 import json
 import sys
 
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")  # Windows consoles default to cp1252 and
+    # mangle the em-dashes/curly quotes in the generated markdown otherwise
+
 from dotenv import load_dotenv
 
 load_dotenv()

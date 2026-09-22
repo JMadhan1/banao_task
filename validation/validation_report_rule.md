@@ -1,41 +1,41 @@
-# Classifier validation — mode=rule, n=220
+# Classifier validation — mode=rule, n=60
 
 Ground truth: the ticket's own `category` field (bot-tagged at intake, agent-corrected at closure — the closest thing to a human judgment call already in the data). Prediction: classifier run on `customer_message` alone, blind to the stored category.
 
-**Overall accuracy: 40.9%**
+**Overall accuracy: 43.3%**
 
 ## Accuracy by true category
 
 | true                |   accuracy |   n |
 |:--------------------|-----------:|----:|
-| Product Enquiry     |  0.0909091 |  11 |
-| Audio Quality       |  0.266667  |  15 |
-| Other               |  0.290323  |  31 |
-| Connectivity        |  0.333333  |  21 |
-| Returns & Refunds   |  0.363636  |  22 |
-| Warranty & Repair   |  0.363636  |  11 |
-| Charging & Battery  |  0.5       |  18 |
-| Account & Login     |  0.5       |   6 |
-| Delivery & Shipping |  0.5       |  40 |
-| Billing & Payments  |  0.533333  |  30 |
-| App & Firmware      |  0.6       |  15 |
+| Account & Login     |   0        |   2 |
+| Product Enquiry     |   0.2      |   5 |
+| Connectivity        |   0.333333 |   6 |
+| Other               |   0.375    |   8 |
+| Charging & Battery  |   0.4      |   5 |
+| Audio Quality       |   0.4      |   5 |
+| Delivery & Shipping |   0.5      |  10 |
+| Billing & Payments  |   0.5      |   6 |
+| Warranty & Repair   |   0.5      |   4 |
+| Returns & Refunds   |   0.5      |   6 |
+| App & Firmware      |   1        |   3 |
 
 ## Top confusions
 
 | true                | pred                |   n |
 |:--------------------|:--------------------|----:|
-| Delivery & Shipping | Other               |  14 |
-| Returns & Refunds   | Delivery & Shipping |  12 |
-| Connectivity        | Other               |   8 |
-| Billing & Payments  | Other               |   6 |
-| Product Enquiry     | Other               |   6 |
-| Other               | Delivery & Shipping |   6 |
-| Other               | Returns & Refunds   |   5 |
-| Audio Quality       | Returns & Refunds   |   4 |
-| Audio Quality       | Other               |   4 |
-| Other               | Charging & Battery  |   4 |
-| App & Firmware      | Returns & Refunds   |   4 |
-| Billing & Payments  | Returns & Refunds   |   4 |
-| Product Enquiry     | App & Firmware      |   4 |
-| Charging & Battery  | Returns & Refunds   |   4 |
-| Connectivity        | Returns & Refunds   |   4 |
+| Delivery & Shipping | Other               |   5 |
+| Connectivity        | Other               |   3 |
+| Returns & Refunds   | Delivery & Shipping |   2 |
+| Product Enquiry     | App & Firmware      |   2 |
+| Billing & Payments  | Other               |   2 |
+| Product Enquiry     | Other               |   2 |
+| Other               | Returns & Refunds   |   2 |
+| Account & Login     | Returns & Refunds   |   2 |
+| Other               | Charging & Battery  |   1 |
+| Audio Quality       | App & Firmware      |   1 |
+| Billing & Payments  | App & Firmware      |   1 |
+| Charging & Battery  | Other               |   1 |
+| Other               | Delivery & Shipping |   1 |
+| Returns & Refunds   | Other               |   1 |
+| Warranty & Repair   | App & Firmware      |   1 |
