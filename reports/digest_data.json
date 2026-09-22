@@ -1,0 +1,277 @@
+{
+  "digest": {
+    "week_start": "2026-06-08",
+    "week_end": "2026-06-15",
+    "n_tickets": 203,
+    "category_counts": {
+      "Delivery & Shipping": 39,
+      "Other": 35,
+      "Audio Quality": 20,
+      "Returns & Refunds": 18,
+      "Warranty & Repair": 18,
+      "Connectivity": 18,
+      "App & Firmware": 16,
+      "Billing & Payments": 16,
+      "Charging & Battery": 14,
+      "Product Enquiry": 5,
+      "Account & Login": 4
+    },
+    "avg_csat": 3.2,
+    "refund_total_inr": 77355.0,
+    "repeat_contacts_this_week": 23,
+    "repeat_language_flagged": 28,
+    "top_quotes": {
+      "Delivery & Shipping": [
+        "hi there, bought pulse 2 around 16/11 from vireo.in. pickup scheduled but no one showed up. please advise.",
+        "team, order not delivered, tracking not updating 3 weeks back se pls reply",
+        "Dear Sir/Madam, My earlier ticket got closed without a fix. I am writing with reference to my order of the GaN charger ([order ref]) placed on 16 May. The parcel looked like it was kicked here from the warehouse, and the"
+      ],
+      "Other": [
+        "hi random disconnects during calls the strata 3 hello??",
+        "really frustrating. i bought my pulse on 06 jun. order status stuck on shipped since 06 jun. i already called the courier. refund. now.",
+        "Thiis is v disappointing. Ordered my Strata 3 headphones around Diwali. paid once, statement disagrees. I alreayd waited a week. This is the lst tie I buy from u."
+      ],
+      "Audio Quality": [
+        "This is very disappointing. Got Pulse 2 from vireo.in recently. callers keep asking me to repeat myself since recently. I already checked mic permissions. I want a replacement or refund, nothing else.",
+        "Hi there, Ordered pulse 1 last week. Mic not working on calls. I tried different apps. Nothing changed. Please call me on my registered number. Thanks in advance,",
+        "hi sir right earbud completely silent abhi tak kuch nahi hua my strata 2 headphones [order ref] anyone there"
+      ]
+    },
+    "themes_by_cat": {
+      "Delivery & Shipping": [
+        "scheduled pickup did not occur",
+        "order not delivered, tracking not updating",
+        "damaged charger with cracked unit",
+        "damaged charger received, photos taken",
+        "pulse 2 earbuds not received after a month",
+        "courier marked delivered but no receipt"
+      ],
+      "Other": [
+        "random call disconnects during use",
+        "order status stuck at shipped, no delivery",
+        "payment discrepancy, statement mismatch",
+        "order status stuck at shipped since 08-06-2026",
+        "cancel order via app button greyed out",
+        "loses connection when walking to other room"
+      ],
+      "Audio Quality": [
+        "mic not picking up voice during calls",
+        "mic not working on calls across apps",
+        "right earbud completely silent",
+        "request replacement or refund after repeated calls",
+        "static noise during music playback",
+        "mic not working on calls after permission check"
+      ]
+    },
+    "leaderboard": [
+      {
+        "agent_id": "A3027",
+        "name": "Rajat Saxena",
+        "team": "Logistics",
+        "site": "Indore",
+        "tickets_closed": 9,
+        "avg_csat": 3.0,
+        "breaches": 0,
+        "breach_credit_inr": 0
+      },
+      {
+        "agent_id": "A3004",
+        "name": "Aishwarya Shinde",
+        "team": "Chat Frontline",
+        "site": "Bengaluru",
+        "tickets_closed": 8,
+        "avg_csat": 3.6666666666666665,
+        "breaches": 0,
+        "breach_credit_inr": 0
+      },
+      {
+        "agent_id": "A3019",
+        "name": "Kavya D'Souza",
+        "team": "Email Frontline",
+        "site": "Bengaluru",
+        "tickets_closed": 8,
+        "avg_csat": 3.75,
+        "breaches": 0,
+        "breach_credit_inr": 0
+      },
+      {
+        "agent_id": "A3020",
+        "name": "Ankit Ansari",
+        "team": "Email Frontline",
+        "site": "Bengaluru",
+        "tickets_closed": 8,
+        "avg_csat": 3.25,
+        "breaches": 1,
+        "breach_credit_inr": 350
+      },
+      {
+        "agent_id": "A3011",
+        "name": "Kavya Goyal",
+        "team": "Chat Frontline",
+        "site": "Bengaluru",
+        "tickets_closed": 7,
+        "avg_csat": 3.5,
+        "breaches": 1,
+        "breach_credit_inr": 350
+      },
+      {
+        "agent_id": "A3031",
+        "name": "Aishwarya Agarwal",
+        "team": "Logistics",
+        "site": "Indore",
+        "tickets_closed": 6,
+        "avg_csat": 2.0,
+        "breaches": 0,
+        "breach_credit_inr": 0
+      },
+      {
+        "agent_id": "A3037",
+        "name": "Vivaan Sethi",
+        "team": "Returns Desk",
+        "site": "Bengaluru",
+        "tickets_closed": 6,
+        "avg_csat": 3.25,
+        "breaches": 0,
+        "breach_credit_inr": 0
+      },
+      {
+        "agent_id": "A3028",
+        "name": "Tarun Pereira",
+        "team": "Logistics",
+        "site": "Bengaluru",
+        "tickets_closed": 6,
+        "avg_csat": 3.3333333333333335,
+        "breaches": 0,
+        "breach_credit_inr": 0
+      },
+      {
+        "agent_id": "A3026",
+        "name": "Vihaan Dutta",
+        "team": "Voice Frontline",
+        "site": "Bengaluru",
+        "tickets_closed": 6,
+        "avg_csat": 3.0,
+        "breaches": 0,
+        "breach_credit_inr": 0
+      },
+      {
+        "agent_id": "A3033",
+        "name": "Diya Singh",
+        "team": "Billing",
+        "site": "Bengaluru",
+        "tickets_closed": 6,
+        "avg_csat": 2.6666666666666665,
+        "breaches": 0,
+        "breach_credit_inr": 0
+      }
+    ],
+    "tier2_panel": [
+      {
+        "agent_id": "A3039",
+        "name": "Vivaan Kulkarni",
+        "team": "Escalations & Warranty",
+        "cases_resolved": 2,
+        "median_resolution_days": 10.088194444444444
+      },
+      {
+        "agent_id": "A3040",
+        "name": "Sai Sharma",
+        "team": "Escalations & Warranty",
+        "cases_resolved": 6,
+        "median_resolution_days": 4.1565972222222225
+      },
+      {
+        "agent_id": "A3041",
+        "name": "Deepak Mathew",
+        "team": "Escalations & Warranty",
+        "cases_resolved": 1,
+        "median_resolution_days": 2.1819444444444445
+      },
+      {
+        "agent_id": "A3042",
+        "name": "Aishwarya Kaur",
+        "team": "Escalations & Warranty",
+        "cases_resolved": 1,
+        "median_resolution_days": 3.1659722222222224
+      },
+      {
+        "agent_id": "A3043",
+        "name": "Rahul Gupta",
+        "team": "Escalations & Warranty",
+        "cases_resolved": 3,
+        "median_resolution_days": 3.1458333333333335
+      },
+      {
+        "agent_id": "A3044",
+        "name": "Meera Joshi",
+        "team": "Escalations & Warranty",
+        "cases_resolved": 4,
+        "median_resolution_days": 4.220486111111112
+      }
+    ],
+    "llm_usage": {
+      "prompt_tokens": 12562,
+      "completion_tokens": 6037,
+      "calls": 9,
+      "fallback_n": 0
+    }
+  },
+  "business_case": {
+    "window_days": 30,
+    "stable_attendance_n": 10484,
+    "stable_repeat_n": 1371,
+    "current_rate": 0.1307706982067913,
+    "avg_repeat_cost_inr": 260.22611232676877,
+    "current_weekly_volume": 650,
+    "target_rate": 0.08,
+    "quarterly_cost_now_inr": 287553.0808851583,
+    "quarterly_cost_target_inr": 175912.8519328957,
+    "quarterly_savings_inr": 111640.22895226264
+  },
+  "by_category": {
+    "Delivery & Shipping": {
+      "repeat_contacts": 311,
+      "cost_inr": 80140
+    },
+    "Billing & Payments": {
+      "repeat_contacts": 200,
+      "cost_inr": 52940
+    },
+    "Other": {
+      "repeat_contacts": 157,
+      "cost_inr": 40950
+    },
+    "Returns & Refunds": {
+      "repeat_contacts": 155,
+      "cost_inr": 40920
+    },
+    "Connectivity": {
+      "repeat_contacts": 146,
+      "cost_inr": 37410
+    },
+    "Charging & Battery": {
+      "repeat_contacts": 129,
+      "cost_inr": 35440
+    },
+    "Audio Quality": {
+      "repeat_contacts": 108,
+      "cost_inr": 27520
+    },
+    "App & Firmware": {
+      "repeat_contacts": 93,
+      "cost_inr": 22920
+    },
+    "Warranty & Repair": {
+      "repeat_contacts": 70,
+      "cost_inr": 18110
+    },
+    "Account & Login": {
+      "repeat_contacts": 1,
+      "cost_inr": 210
+    },
+    "Product Enquiry": {
+      "repeat_contacts": 1,
+      "cost_inr": 210
+    }
+  }
+}

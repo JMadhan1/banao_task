@@ -86,19 +86,40 @@ DECIDED without a reason.
       but worth knowing if this breaks again on a different network.
 - [x] `src/digest.py` — weekly digest generator (markdown; HTML/artifact version pending)
 - [x] `run.py` — CLI entrypoint (`python run.py digest --week 2026-06-08`, `python run.py leaderboard --week ...`, `python run.py business-case`) — all three smoke-tested and working
-- [ ] `validation/validate.py` — classifier accuracy check against agent category tags
-- [ ] `requirements.txt`
-- [ ] `README.md` (root, run-from-clean-machine instructions)
-- [ ] `memo/memo_to_priya.md` — one-page, non-technical
-- [ ] `submission-form.md` — filled in (not included in the pack; template built from the
-      brief's own questions)
-- [ ] Sample output committed to `reports/` (one real week, run end to end) so a reviewer
-      doesn't have to run anything to see the shape of the output
-- [ ] git commits at each milestone
+- [x] `validation/validate.py` — classifier accuracy check against agent category tags.
+      Results: rule mode 41% (n=220), llm mode 57% (n=90). Reports written to
+      `validation/validation_report_{rule,llm}.md`.
+- [x] `requirements.txt`
+- [x] `README.md` (root, run-from-clean-machine instructions)
+- [x] `memo/memo_to_priya.md` — one-page, non-technical, links the HTML dashboard artifact
+- [x] `submission-form.md` — filled in (not included in the pack; template built from the
+      brief's own questions). **Two fields still need the human user's own input**:
+      "Honest hours spent" and the Google Drive / GitHub links — an AI assistant cannot
+      truthfully fill those in.
+- [x] Sample output committed to `reports/`: `digest_2026-06-08_rule.md`,
+      `digest_2026-06-08_llm.md`, `digest_data.json`, `digest_dashboard.html` (styled,
+      also published as a Claude Artifact — link in the memo)
+- [x] git commits at each milestone
 - [ ] Screen recording — **this cannot be done by an AI assistant; the user must record
       their own screen**. Flagged clearly in the final summary. Not blocking the rest.
 - [ ] GitHub push — **only after explicit user confirmation** (publishing action). Repo is
       committed locally regardless.
+
+## Real numbers discovered while testing the Groq integration (worth knowing before touching src/classify.py)
+
+- This Groq account's key only has access to `openai/gpt-oss-20b`, `openai/gpt-oss-120b`,
+  `whisper-*`, and a couple of niche models — checked live via `/openai/v1/models`, not
+  assumed. No `llama-3.x` chat models on this account.
+- Groq's Cloudflare front-end 403s (error 1010) any request with urllib's default
+  `User-Agent` — fixed by sending a real one.
+- This model is capped at **8,000 tokens/minute on the free tier** (confirmed via a live
+  429 response, not docs). `src/classify.py` now paces itself against that budget after
+  each call and does retry-after-aware backoff on a 429. A full real week (203 tickets, 9
+  batches) ran clean end to end: 12,562 prompt + 6,037 completion tokens, 156 seconds,
+  zero fallbacks.
+- `reasoning_effort: "low"` is a Groq-specific param for gpt-oss models — without it the
+  model burns a large chunk of `max_tokens` on chain-of-thought before ever emitting the
+  JSON, which was truncating results in early tests.
 
 ## Known limitations / things intentionally left out (for the memo's "what's wrong" section)
 

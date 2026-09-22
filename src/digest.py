@@ -58,12 +58,24 @@ def build_weekly_digest(
         all_repeats["repeat_ticket_id"].isin(week["ticket_id"])
     ]
 
-    # top verbatim quotes per top category (lightly redacted)
+    # top verbatim quotes + (llm mode) specific themes per top category (lightly redacted)
     top_categories = cat_counts.head(3).index.tolist()
     quotes = {}
+    themes_by_cat = {}
     for cat in top_categories:
-        sample = week[week["category"] == cat]["customer_message"].dropna().head(3)
+        cat_rows = week[week["category"] == cat]
+        sample = cat_rows["customer_message"].dropna().head(3)
         quotes[cat] = [_redact(q)[:220] for q in sample]
+        if mode == "llm":
+            themes = [t for t in cat_rows["theme"] if t and not t.startswith("(")]
+            # de-dup near-identical themes by lowercase first-40-chars key, keep order
+            seen, uniq = set(), []
+            for t in themes:
+                key = t.lower()[:40]
+                if key not in seen:
+                    seen.add(key)
+                    uniq.append(t)
+            themes_by_cat[cat] = uniq[:6]
 
     board = agent_leaderboard(tickets, week_start, week_end)
 
@@ -77,6 +89,7 @@ def build_weekly_digest(
         "repeat_contacts_this_week": int(len(repeats_this_week)),
         "repeat_language_flagged": int(week["repeat_language"].sum()),
         "top_quotes": quotes,
+        "themes_by_cat": themes_by_cat,
         "leaderboard": board["leaderboard"],
         "tier2_panel": board["tier2_panel"],
         "mode": mode,
@@ -109,6 +122,9 @@ def digest_to_markdown(d: dict) -> str:
     lines.append("\n## Customer voice (redacted quotes, top categories)")
     for cat, qs in d["top_quotes"].items():
         lines.append(f"\n**{cat}**")
+        themes = d.get("themes_by_cat", {}).get(cat)
+        if themes:
+            lines.append("Specific issues AI picked out this week: " + "; ".join(themes))
         for q in qs:
             lines.append(f"> {q}")
 

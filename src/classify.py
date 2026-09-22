@@ -104,9 +104,21 @@ def _groq_call(prompt: str, api_key: str, model: str = GROQ_MODEL, max_tokens: i
         },
         method="POST",
     )
-    with urllib.request.urlopen(req, timeout=60) as resp:
-        payload = json.loads(resp.read().decode("utf-8"))
+    try:
+        with urllib.request.urlopen(req, timeout=60) as resp:
+            payload = json.loads(resp.read().decode("utf-8"))
+    except urllib.error.HTTPError as e:
+        if e.code == 429:
+            retry_after = float(e.headers.get("retry-after", 20))
+            raise RateLimited(retry_after) from e
+        raise
     return payload["choices"][0]["message"]["content"], payload.get("usage", {})
+
+
+class RateLimited(Exception):
+    def __init__(self, retry_after_s: float):
+        self.retry_after_s = retry_after_s
+        super().__init__(f"rate limited, retry after {retry_after_s}s")
 
 
 def llm_classify_batch(
@@ -151,7 +163,18 @@ def llm_classify_batch(
             f"Tickets:\n{json.dumps(items, ensure_ascii=False)}"
         )
         try:
-            content, usage = _groq_call(prompt, api_key)
+            for attempt in range(4):
+                try:
+                    content, usage = _groq_call(prompt, api_key)
+                    break
+                except RateLimited as rl:
+                    if attempt == 3:
+                        raise
+                    time.sleep(rl.retry_after_s + 1)
+                except Exception:
+                    if attempt == 3:
+                        raise
+                    time.sleep(1.5 * (attempt + 1))
             parsed = json.loads(content)
             for r in parsed.get("results", []):
                 tid = r.get("ticket_id")
@@ -163,8 +186,13 @@ def llm_classify_batch(
                     }
             usage_totals["prompt_tokens"] += usage.get("prompt_tokens", 0)
             usage_totals["completion_tokens"] += usage.get("completion_tokens", 0)
+            # This Groq account's free tier caps this model at 8000 tokens/minute
+            # (checked via a live 429 response). Pace proactively so we don't rely on
+            # hitting the limit and waiting out retry-after every single batch.
+            total = usage.get("prompt_tokens", 0) + usage.get("completion_tokens", 0)
+            time.sleep(max(1.0, total / 8000 * 60))
             usage_totals["calls"] += 1
-        except (urllib.error.URLError, json.JSONDecodeError, KeyError, TimeoutError) as e:
+        except Exception as e:  # network hiccup, malformed JSON, whatever — never break the digest
             for t in batch:
                 msg = t.get("customer_message", "")
                 results[t["ticket_id"]] = {
