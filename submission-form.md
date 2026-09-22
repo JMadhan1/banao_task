@@ -164,8 +164,7 @@ the leaderboard existed) — included as an extra column, not a ranking factor.
   digest now always trusts the agent's own category tag and uses the LLM only for the
   texture underneath it (see "how do you know it works").
 
-Screen recording: *[fill in after recording — see the "recording" checklist you were given
-separately for what to show and say]*.
+Screen recording: https://www.loom.com/share/4d6d470bc17f4367b997e3143e17452e
 
 ## Your Public Google Drive Link
 
@@ -188,7 +187,7 @@ separately for what to show and say]*.
 
 ## Honest hours spent.
 
-*[fill in — track your own wall-clock time]*
+2.5 hours.
 
 ## Github Repo Link
 
