@@ -164,8 +164,8 @@ the leaderboard existed) — included as an extra column, not a ranking factor.
   digest now always trusts the agent's own category tag and uses the LLM only for the
   texture underneath it (see "how do you know it works").
 
-Screen recording: *[link — see note in "someone picks this up on Monday" below; recording
-the assistant's own screen was done outside this document]*.
+Screen recording: *[fill in after recording — see the "recording" checklist you were given
+separately for what to show and say]*.
 
 ## Your Public Google Drive Link
 
@@ -192,4 +192,4 @@ the assistant's own screen was done outside this document]*.
 
 ## Github Repo Link
 
-*[fill in after pushing — see README.md for setup instructions]*
+https://github.com/JMadhan1/banao_task
